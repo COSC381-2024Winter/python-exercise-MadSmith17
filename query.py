@@ -1,5 +1,4 @@
 from movies import Movies
-
 class Query:
     def __init__(self):
         self.movies = Movies()
