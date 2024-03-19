@@ -28,7 +28,7 @@ class Query:
     def list_movie_names(self):
         movies = self.movies.get_movie_names()
         for i, movie in enumerate(movies, 1):
-            print(f"{i}. {movie}")
+            print(f"{i}. {movie['name']}")
 
     def search_by_name(self):
         search_term = input("Enter a partial name of the movie: ")
@@ -46,8 +46,7 @@ class Query:
         if results:
             print("Search results:")
             for movie, cast in results.items():
-                print(movie)
-                print(cast)
+                print(f"{movie}: {', '.join(cast)}")
         else:
             print("No results found.")
 
