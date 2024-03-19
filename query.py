@@ -8,6 +8,7 @@ class Query:
         while True:
             print("Menu:")
             print("1. List all movie names")
+            print("2. Search movies by names")
             print("q. Quit")
             
             choice = input("Enter your choice: ")
@@ -16,6 +17,8 @@ class Query:
                 break
             elif choice == '1':
                 self.list_movie_names()
+            elif choice == '2':
+                self.search_by_name()
             else:
                 print("Invalid choice. Please try again.")
 
@@ -23,6 +26,16 @@ class Query:
         movies = self.movies.get_movie_names()
         for i, movie in enumerate(movies, 1):
             print(f"{i}. {movie}")
+
+    def search_by_name(self):
+        search_term = input("Enter a partial name of the movie: ")
+        results = self.movies.search_by_name(search_term)
+        if results:
+            print("Search results:")
+            for result in results:
+                print(result)
+        else:
+            print("No results found.")
 
 if __name__ == "__main__":
     query = Query()
